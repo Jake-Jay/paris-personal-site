@@ -6,14 +6,17 @@
       elevate-on-scroll
     >
       <div class="d-flex align-center">
-        <v-img
+        <v-btn icon>
+          <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src='./assets/paris-bee.png'
+          src='./assets/paris-head.svg'
           transition="scale-transition"
           width="40"
+          @click="$vuetify.goTo(0)"
         />
+        </v-btn>
       </div>
       <v-spacer></v-spacer>
       <a href="/documents/Paris Pencharz 2020 CV.pdf" download>
@@ -45,6 +48,12 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    scrollToTop() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0;
+    }
+  }
 };
 </script>
 

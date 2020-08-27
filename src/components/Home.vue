@@ -7,23 +7,23 @@
           contain
           height="320"
           transition="scale-transition"
-          class="pa-8"
+          class="pa-8 img_hover"
         />
         <h1 class="pa-8" >PARIS PENCHARZ</h1>
 
-        <v-btn icon class="order">
+        <button icon class="order">
           <v-icon
             large
             color="black"
             @click="$vuetify.goTo('#about')"
           >mdi-arrow-down</v-icon>
-        </v-btn>
+        </button>
       </v-col>
     </v-row>
-    <div class="gradient" id="about" style="height:100vh">
+    <div class="gradient" id="about" >
       <div class="ma-4 ">
         <h3 class="text-center pb-4">About Paris</h3>
-        <p class="text-center">
+        <p class="text-center py-4">
           Paris is a very lovely person. <br> 
           As a future employer/supervisor this is really all that you need to know. <br> <br>
 
@@ -34,13 +34,20 @@
           So we should all be greatful that she has chosen to use that superpower to help the cows and sheep and goats and chickens. <br>
           And the forests, grasslands, glaciers and mangroves. <br>
           And the bees, butterflies, grasshoppers and spiders. <br>
-          And probably many more things which you and I shall never know about. <br><br>
-
+          And probably many more things which you and I shall never know about. 
+        </p>
+        <v-img
+          :src="require('../assets/earth.svg')"
+          contain
+          height="320"
+          transition="scale-transition"
+          class="py-8"
+        />
+        <p class="text-center pa-8">
           But what I am the most grateful for, is that she cares about me. <br>
           Because I care about her. <br>
           Very much. <br>
           She is after all, a very lovely person.
-
         </p>
       </div>
     </div>
@@ -87,17 +94,17 @@ a {
   background-image: linear-gradient(62deg, #fbf27e 0%, #F7CE68 100%);
 }
 .order {
-  top: 20vh;
-  width: 75px;
-  line-height: 75px;
-  text-align:center;
+  position: absolute;
+  top: 75vh;
+  width: 50px;
+  line-height: 50px;
+  margin-left: -25px;
   opacity: 1;
   background: #fbf27e;
-  color:#fff;
   border-radius:50%;
-  -webkit-animation: bounce .3s infinite alternate;
-  -moz-animation: bounce .3s infinite alternate;
-  animation: bounce .3s infinite alternate;
+  -webkit-animation: bounce .8s infinite alternate;
+  -moz-animation: bounce .8s infinite alternate;
+  animation: bounce .8s infinite alternate;
 }
 @-webkit-keyframes bounce {
   to { -webkit-transform: scale(1.2); }
@@ -107,6 +114,27 @@ a {
 }
 @keyframes bounce {
   to { transform: scale(1.2); }
+}
+.img_hover:hover {
+  /* Start the shake animation and make the animation last for 0.5 seconds */
+  animation: shake 0.5s;
+
+  /* When the animation is finished, start again */
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 </style>
 
