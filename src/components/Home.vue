@@ -9,15 +9,20 @@
           transition="scale-transition"
           class="pa-8 img_hover"
         />
-        <h1 class="pa-8" >PARIS PENCHARZ</h1>
 
-        <button icon class="order">
-          <v-icon
-            large
-            color="black"
-            @click="$vuetify.goTo('#about')"
-          >mdi-arrow-down</v-icon>
-        </button>
+        <h1 :class="[$vuetify.breakpoint.mdAndUp ? 'large-heading' : 'smaller-heading']" >
+          PARIS PENCHARZ
+        </h1>
+
+        <div class="d-sm-none d-md-flex">
+          <button icon class="order">
+            <v-icon
+              large
+              color="black"
+              @click="$vuetify.goTo('#about')"
+            >mdi-arrow-down</v-icon>
+          </button>
+        </div>
       </v-col>
     </v-row>
     <div class="gradient" id="about" >
@@ -67,8 +72,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-  font-family:'Paris-font'; 
-  font-size:6rem
+  font-family:'Paris-font' !important; 
+}
+.large-heading {
+  font-size:6rem;
+}
+.smaller-heading {
+  font-size:4rem;
 }
 h3 {
   font-family:'Paris-font'; 
@@ -98,7 +108,7 @@ a {
   top: 75vh;
   width: 50px;
   line-height: 50px;
-  margin-left: -25px;
+  margin-left: 48%;
   opacity: 1;
   background: #fbf27e;
   border-radius:50%;
